@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ZAVIRO Food &amp; Snacks – Taste the Future</title>
+<style>
+:root{--bg:#fffaf3;--surface:#fff;--text:#1d1a17;--muted:#6b645c;--accent:#ff5a1f;--accent2:#7c3aed;--line:#eadfce;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14110e;--surface:#1f1b17;--text:#f6efe6;--muted:#a79d90;--line:#332c25;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14110e;--surface:#1f1b17;--text:#f6efe6;--muted:#a79d90;--line:#332c25;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:20}
+nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:900;letter-spacing:.12em;font-size:20px}.logo b{color:var(--accent)}
+nav a{color:var(--text);text-decoration:none;margin-left:18px;font-size:14px}
+.cartbtn{background:var(--accent);color:#fff;border:0;border-radius:99px;padding:8px 14px;font-weight:700;cursor:pointer;margin-left:18px}
+.hero{padding:72px 0 56px;text-align:center;background:radial-gradient(600px 300px at 50% 0,rgba(255,90,31,.18),transparent)}
+.hero h1{font-size:clamp(38px,8vw,72px);line-height:1.05;margin:0 0 14px;letter-spacing:-.02em}
+.hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:560px;margin:0 auto 26px;color:var(--muted);font-size:18px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;border:0;padding:13px 24px;border-radius:99px;font-weight:700;cursor:pointer;font-size:15px}
+.btn.alt{background:transparent;color:var(--text);border:1.5px solid var(--line);margin-left:8px}
+section{padding:56px 0}h2{font-size:32px;margin:0 0 8px}.sub{color:var(--muted);margin:0 0 28px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.card .em{font-size:38px}.card h3{margin:8px 0 4px;font-size:17px}.card p{margin:0;color:var(--muted);font-size:14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tab{border:1.5px solid var(--line);background:var(--surface);color:var(--text);border-radius:99px;padding:7px 16px;cursor:pointer;font-size:14px}
+.tab.on{background:var(--text);color:var(--bg);border-color:var(--text)}
+.item{display:flex;flex-direction:column;gap:6px}.item .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px}
+.price{font-weight:800}.add{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:7px 12px;font-weight:700;cursor:pointer}
+.waiter{display:grid;gap:24px;grid-template-columns:1fr 1fr;align-items:start}
+@media(max-width:760px){.waiter{grid-template-columns:1fr}nav a.h{display:none}}
+.chat{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;height:380px}
+.msgs{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:4px}
+.m{max-width:85%;padding:9px 13px;border-radius:14px;font-size:14px}.m.bot{background:var(--bg);border:1px solid var(--line);align-self:flex-start}.m.me{background:var(--accent);color:#fff;align-self:flex-end}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.chips button{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:99px;padding:5px 11px;font-size:12px;cursor:pointer}
+.chat input{width:100%;padding:11px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-size:14px}
+.tag{display:inline-block;font-size:12px;background:rgba(124,58,237,.14);color:var(--accent2);padding:3px 10px;border-radius:99px;font-weight:700;margin-bottom:10px}
+#drawer{position:fixed;right:0;top:0;bottom:0;width:min(340px,100%);background:var(--surface);border-left:1px solid var(--line);transform:translateX(105%);transition:transform .25s;z-index:30;padding:calc(18px + env(safe-area-inset-top,0px)) 18px 18px;display:flex;flex-direction:column}
+#drawer.open{transform:none}#lines{flex:1;overflow-y:auto}
+.ln{display:flex;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.ln button{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:6px;width:24px;cursor:pointer}
+footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<div class="logo">ZAV<b>I</b>RO</div>
+<div><a class="h" href="#about">About</a><a class="h" href="#menu">Menu</a><a class="h" href="#waiter">AI Waiter</a><button class="cartbtn" id="cb">Order (<span id="cc">0</span>)</button></div>
+</nav></div></header>
+
+<div class="hero"><div class="wrap">
+<h1>Taste the <span>Future.</span></h1>
+<p>Burgers, pizza, fries and sweet treats, ordered through a modern digital menu and a friendly AI waiter.</p>
+<a class="btn" href="#menu">Explore the menu</a><a class="btn alt" href="#waiter">Meet the AI waiter</a>
+</div></div>
+
+<section id="about"><div class="wrap">
+<h2>What ZAVIRO is planned to offer</h2>
+<p class="sub">Food, technology and a modern customer experience in one place.</p>
+<div class="grid">
+<div class="card"><div class="em">🍔</div><h3>Burgers &amp; Sandwiches</h3><p>A variety of quick and tasty meal options.</p></div>
+<div class="card"><div class="em">🍕</div><h3>Pizza &amp; Fries</h3><p>Popular snacks suitable for different tastes.</p></div>
+<div class="card"><div class="em">🥤</div><h3>Drinks &amp; Desserts</h3><p>Refreshing beverages and sweet options to complete the meal.</p></div>
+<div class="card"><div class="em">🤖</div><h3>AI Waiter</h3><p>A planned assistant to help explore the menu and order food.</p></div>
+<div class="card"><div class="em">📱</div><h3>Digital Menu</h3><p>View available items and their details in a simple digital format.</p></div>
+</div></div></section>
+
+<section id="menu" style="background:var(--surface)"><div class="wrap">
+<h2>Digital Menu</h2>
+<p class="sub">Sample items and prices for the concept. Tap Add to build an order.</p>
+<div class="tabs" id="tabs"></div>
+<div class="grid" id="items"></div>
+</div></section>
+
+<section id="waiter"><div class="wrap">
+<span class="tag">CONCEPT DEMO</span>
+<div class="waiter">
+<div><h2>Your AI Waiter</h2>
+<p class="sub">ZAVIRO’s AI waiter is planned to make ordering more interactive and convenient. Try this simple preview: ask about the menu, get a suggestion, or add an item.</p>
+<p style="color:var(--muted);font-size:14px">This preview uses basic built-in replies. The full AI assistant is still in the planning stage.</p></div>
+<div class="chat"><div class="msgs" id="msgs"></div>
+<div class="chips" id="chips"></div>
+<input id="inp" placeholder="Ask the waiter… e.g. “recommend a burger”" autocomplete="off"></div>
+</div></div></section>
+
+<footer><div class="wrap"><div class="logo">ZAV<b>I</b>RO</div><p>Food &amp; Snacks · “Taste the Future.”<br>A proposed startup project.</p></div></footer>
+
+<aside id="drawer"><div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Your order</h3><button class="tab" id="cx">Close</button></div>
+<div id="lines"></div><div class="ln" style="border:0;font-weight:800"><span>Total</span><span id="tot">$0.00</span></div>
+<button class="btn" id="place">Place order (demo)</button></aside>
+
+<script>
+var M=[
+{c:"Burgers & Sandwiches",e:"🍔",n:"Classic Zaviro Burger",d:"Beef patty, cheddar, lettuce, house sauce",p:6.5},
+{c:"Burgers & Sandwiches",e:"🍔",n:"Crispy Chicken Burger",d:"Crunchy chicken, slaw, spicy mayo",p:6.9},
+{c:"Burgers & Sandwiches",e:"🥪",n:"Club Sandwich",d:"Toasted bread, chicken, egg, veggies",p:5.5},
+{c:"Burgers & Sandwiches",e:"🥪",n:"Veggie Grill Sandwich",d:"Grilled vegetables, cheese, pesto",p:5.2},
+{c:"Pizza & Fries",e:"🍕",n:"Margherita Pizza",d:"Tomato, mozzarella, fresh basil",p:8.0},
+{c:"Pizza & Fries",e:"🍕",n:"Pepperoni Pizza",d:"Mozzarella and spicy pepperoni",p:9.2},
+{c:"Pizza & Fries",e:"🍟",n:"Classic Fries",d:"Golden, crisp and lightly salted",p:3.2},
+{c:"Pizza & Fries",e:"🍟",n:"Loaded Cheese Fries",d:"Fries topped with melted cheese sauce",p:4.5},
+{c:"Drinks & Desserts",e:"🥤",n:"Fresh Lemonade",d:"Zesty, cold and refreshing",p:2.5},
+{c:"Drinks & Desserts",e:"🥤",n:"Iced Cola",d:"Classic fizzy drink over ice",p:2.2},
+{c:"Drinks & Desserts",e:"🍦",n:"Vanilla Sundae",d:"Soft vanilla with chocolate drizzle",p:3.5},
+{c:"Drinks & Desserts",e:"🍫",n:"Choco Brownie",d:"Warm, fudgy chocolate brownie",p:3.8}];
+var cats=["All"].concat(M.map(function(x){return x.c}).filter(function(v,i,a){return a.indexOf(v)==i}));
+var cur="All",cart={};
+function $(i){return document.getElementById(i)}
+function drawMenu(){
+$("tabs").innerHTML=cats.map(function(c){return '<button class="tab'+(c==cur?' on':'')+'" data-c="'+c+'">'+c+'</button>'}).join("");
+$("items").innerHTML=M.map(function(x,i){return {x:x,i:i}}).filter(function(o){return cur=="All"||o.x.c==cur}).map(function(o){
+return '<div class="card item"><div class="em">'+o.x.e+'</div><h3>'+o.x.n+'</h3><p>'+o.x.d+'</p><div class="row"><span class="price">$'+o.x.p.toFixed(2)+'</span><button class="add" data-i="'+o.i+'">Add</button></div></div>'}).join("");}
+function drawCart(){
+var k=Object.keys(cart),t=0,n=0;
+$("lines").innerHTML=k.length?k.map(function(i){var q=cart[i],x=M[i];t+=q*x.p;n+=q;
+return '<div class="ln"><span>'+x.n+'</span><span><button data-m="'+i+'">−</button> '+q+' <button data-p="'+i+'">+</button></span></div>'}).join(""):'<p style="color:var(--muted)">Your order is empty.</p>';
+$("cc").textContent=n;$("tot").textContent="$"+t.toFixed(2);}
+function add(i){cart[i]=(cart[i]||0)+1;drawCart();}
+$("tabs").onclick=function(e){if(e.target.dataset.c){cur=e.target.dataset.c;drawMenu();}};
+$("items").onclick=function(e){if(e.target.dataset.i!==undefined)add(e.target.dataset.i);};
+$("lines").onclick=function(e){var d=e.target.dataset;if(d.p!==undefined)add(d.p);if(d.m!==undefined){if(--cart[d.m]<1)delete cart[d.m];drawCart();}};
+$("cb").onclick=function(){$("drawer").classList.add("open")};
+$("cx").onclick=function(){$("drawer").classList.remove("open")};
+$("place").onclick=function(){if(!Object.keys(cart).length)return;cart={};drawCart();$("lines").innerHTML='<p>Thank you! This is a concept demo, so no real order was placed.</p>';};
+function say(t,w){var d=document.createElement("div");d.className="m "+w;d.textContent=t;$("msgs").appendChild(d);$("msgs").scrollTop=1e9;}
+function find(q){for(var i=0;i<M.length;i++){if(q.indexOf(M[i].n.toLowerCase())>-1)return i}
+var w={burger:0,sandwich:2,pizza:4,fries:6,lemonade:8,cola:9,sundae:10,brownie:11,dessert:10,drink:8};for(var k in w)if(q.indexOf(k)>-1)return w[k];return -1;}
+function reply(q){q=q.toLowerCase();
+if(/menu|what do you|have/.test(q))return "We plan to serve burgers & sandwiches, pizza & fries, and drinks & desserts. Which one sounds good?";
+if(/recommend|suggest|popular|best/.test(q)){var i=find(q);i=i<0?0:i;return "I’d suggest the "+M[i].n+" ("+M[i].d.toLowerCase()+"). Say “add "+M[i].n.toLowerCase()+"” and I’ll put it in your order."}
+if(/add|order|want|get/.test(q)){var j=find(q);if(j>-1){add(j);return "Added "+M[j].n+" to your order. Anything else?"}return "Which item would you like? Try “add pizza” or “add fries”."}
+if(/total|cart|bill/.test(q))return "Your current total is "+$("tot").textContent+".";
+var k=find(q);if(k>-1)return M[k].n+": "+M[k].d+", $"+M[k].p.toFixed(2)+". Want me to add it?";
+return "I can show the menu, recommend something or add items. What would you like?";}
+function send(t){if(!t.trim())return;say(t,"me");setTimeout(function(){say(reply(t),"bot")},350);}
+$("inp").onkeydown=function(e){if(e.key=="Enter"){send(this.value);this.value=""}};
+$("chips").innerHTML=["Show the menu","Recommend a burger","Add fries","What’s my total?"].map(function(c){return '<button>'+c+'</button>'}).join("");
+$("chips").onclick=function(e){if(e.target.tagName=="BUTTON")send(e.target.textContent)};
+say("Hi, I’m the ZAVIRO AI waiter preview. How can I help you today?","bot");
+drawMenu();drawCart();
+</script>
+</body>
+</html>
